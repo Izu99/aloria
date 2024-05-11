@@ -1,0 +1,106 @@
+.messagingapp {
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.messagingapp .discussion {
+    align-items: center;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #dddddd; /* Add border between discussions */
+    border-right: 1px solid #dddddd;
+    border-radius: 15px;
+    height: 95px;
+}
+
+.messagingapp .discussion:hover {
+    background-color: #ececec;
+}
+
+.messagingapp .discussion .photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.messagingapp .discussion .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.messagingapp .discussion .desc-contact {
+    flex: 1;
+}
+
+.messagingapp .discussion .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.messagingapp .discussion .time {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.messagingapp .message-active {
+    background-color: #e4e3e3;
+}
+
+.messagingapp .message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.messagingapp .message.sent {
+    justify-content: flex-end;
+}
+
+.messagingapp .message.received {
+    justify-content: flex-start;
+}
+
+.messagingapp .message .photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.messagingapp .message .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.messagingapp .message .bubble {
+    max-width: 70%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.messagingapp .message.sent .bubble {
+    background-color: #dcf8c6;
+    order: -1;
+}
+
+.messagingapp .message .bubble p {
+    margin: 0;
+}
+
+/* Online Indicator */
+.messagingapp .online {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}

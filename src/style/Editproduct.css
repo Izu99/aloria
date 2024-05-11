@@ -1,0 +1,57 @@
+.editproduct {
+	max-height: 100vh;
+	height: 100vh;
+}
+.editproduct .col-10 {
+	
+}
+
+.editproduct .col-10 h2 {
+	text-align: center;
+	margin-top: 5vh;
+}
+
+.editproduct .col-10 .row {
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	
+}
+
+.editproduct .col-10 .row form {
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+}
+
+.editproduct .col-10 .row form h2 {
+	text-align: center;
+}
+
+.editproduct .col-10 .row img{
+	margin-top: 25%;
+	width: 80%;
+}
+
+.editproduct .col-10 .row .col-9 {
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+
+.editproduct form .col-9 .btn {
+    background-color: #77BF43;
+	width: 50%;
+	/* display: flex; */
+	margin-top: 2rem;
+	color: #ffffff;
+	/* margin: auto; */
+}
+
+.editproduct form .btn:hover {
+    background-color: #72b840;
+}
