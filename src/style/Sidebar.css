@@ -36,7 +36,11 @@
 	align-items: center;
 	font-size: 1.05rem;
 	border: 0;
-	padding: 0.3rem;
+	padding: 0.4rem 0.5rem;
+}
+
+.sidebar ul li a.active {
+background-color: #77BF43;
 }
 
 .sidebar ul li a i,

@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import AddProductForm from "./pages/Addproduct";
 import EditProductForm from "./pages/Editproduct";
 import MessagingApp from "./pages/Messagingapp";
+import Order from "./pages/Order";
 
 function App() {
 	return (
@@ -19,7 +20,8 @@ function App() {
 					<Route path='/homepage' element={<Homepage />} />
 					<Route path='/addproduct' element={<AddProductForm />} />
 					<Route path='/editproduct' element={<EditProductForm />} />
-          <Route path='/chat' element={<MessagingApp />} />
+					<Route path='/chat' element={<MessagingApp />} />
+					<Route path="/order" element={<Order />} />
 				</Routes>
 			</Router>
 		</div>
