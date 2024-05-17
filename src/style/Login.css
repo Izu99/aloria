@@ -61,6 +61,11 @@
     transition: 0.3s ease all;
 }
 
+.login a {
+    color: #e9ebec;
+    text-decoration: none;
+}
+
 @media only screen and (max-width:950px) {
     .login {
         width: 100%;

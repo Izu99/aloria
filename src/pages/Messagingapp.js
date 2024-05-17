@@ -121,7 +121,7 @@ const MessengerApp = () => {
 
 	return (
 		<body>
-			<div className='messagingapp container-fluid d-flex'>
+			<div className='messagingapp container-fluid d-flex p-0'>
 				<div className='col-2 p-0 m-0'>
 					<Sidebar />
 				</div>

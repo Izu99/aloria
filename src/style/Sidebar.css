@@ -1,7 +1,7 @@
 .sidebar {
 	background-color: #ffffff;
-	border-right: 2px solid #e0e0e0;
-	height: 100%;
+	/* border-right: 2px solid #e0e0e0; */
+	height: 100vh;
 }
 
 .sidebar .profile {
@@ -29,7 +29,7 @@
 
 .sidebar ul li a,
 .sidebar ul li button {
-	color: #6b6969;
+	color: #6b6970;
 	font-weight: 500;
 	display: flex;
 	width: 90%;

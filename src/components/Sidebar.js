@@ -23,9 +23,9 @@ const Sidebar = () => {
 				<img src={img} alt='' />
 			</div>
 			<nav>
-				<ul className='list-unstyled ps-0'>
+				<ul className='list-unstyled ps-1'>
 					<li className='py-2'>
-						<NavLink to='/item-management' className='btn btn-toggle' activeClassName='active'>
+						<NavLink to='/dashboard' className='btn btn-toggle' activeClassName='active'>
 							<i class='fa-solid fa-chart-line'></i> Dashboard
 						</NavLink>
 					</li> 
@@ -34,9 +34,9 @@ const Sidebar = () => {
                         <i className='fa-solid fa-box-archive'></i> Products <i className={`fa fa-caret-down ${isProductsOpen ? 'fa-caret-up' : 'fa-caret-down'}`}></i>
                     </button>
                     <div className={`dropdown-container ${isProductsOpen ? 'd-block' : 'd-none'}`}>
-						<NavLink to='/addproduct' className='dropdown-item'>AddProduct</NavLink>
-                        <NavLink to='/categories' className='dropdown-item'>Categories</NavLink>
-                        <NavLink to='/brands' className='dropdown-item'>Brands</NavLink>
+						<NavLink to='/addproduct' className='dropdown-item py-2'>AddProduct</NavLink>
+                        <NavLink to='/categories' className='dropdown-item py-2'>Categories</NavLink>
+                        <NavLink to='/brands' className='dropdown-item py-2'>Brands</NavLink>
                     </div>
                 </li>
                 <li className='py-2'>
@@ -44,9 +44,9 @@ const Sidebar = () => {
                         <i className='fa-solid fa-cart-shopping'></i> Orders <i className={`fa fa-caret-down ${isOrdersOpen ? 'fa-caret-up' : 'fa-caret-down'}`}></i>
                     </button>
                     <div className={`dropdown-container ${isOrdersOpen ? 'd-block' : 'd-none'}`}>
-                        <NavLink to='/order' className='dropdown-item'>Completed</NavLink>
-                        <NavLink to='/orders/pending' className='dropdown-item'>Pending</NavLink>
-                        <NavLink to='/orders/rejected' className='dropdown-item'>Rejected</NavLink>
+                        <NavLink to='/order' className='dropdown-item py-2'>Completed</NavLink>
+                        <NavLink to='/orders/pending' className='dropdown-item py-2'>Pending</NavLink>
+                        <NavLink to='/orders/rejected' className='dropdown-item py-2'>Rejected</NavLink>
                     </div>
                 </li>
                 <li className='py-2'>
@@ -61,17 +61,15 @@ const Sidebar = () => {
 					</li>
 					<li className='py-2'>
 						<NavLink to='/chat' className='btn btn-toggle ' activeClassName='active'>
-							<i class='fa-solid fa-money-check'></i> Chat
+							<i class="fa-regular fa-comment-dots"></i> Chat
 						</NavLink>
 					</li>
 				</ul>
-				<NavLink to='/login' className='btn btn-toggle ' activeClassName='active'>
+				<NavLink to='/login' className='btn btn-toggle mt-auto' activeClassName='active'>
 					<i class='fa-solid fa-right-from-bracket'></i> <p className="logout"> Logout</p>
 				</NavLink>
 			</nav>
-			<div className='flex-grow-1 p-3' style={{ overflowY: "auto" }}>
-				{/* The main content will be rendered here based on the route */}
-			</div>
+			
 		</div>
 	);
 };

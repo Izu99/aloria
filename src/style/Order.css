@@ -1,6 +1,8 @@
 /* Custom CSS for modern-looking design */
-.container {
-    margin-top: 2rem; 
+
+.order {
+    max-height: 100vh;
+    height: 100vh;
 }
 
 .table {
@@ -11,34 +13,17 @@
 .table th,
 .table td, table tr td:nth-child(2) {
     vertical-align: middle;
-    color: #343a40;
-}
-
-.table th {
-    border: none;
-    font-weight: bold;
-    color: #343a40;
+    align-items: center;
+    justify-content: center;
+    color: #3e3e3f;
 }
 
 .table td {
     border-color: #dee2e6;
 }
 
-table tr td:nth-child(2) {
-    margin: auto;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-}
-
-table tr td:nth-child(2) p {
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-}
-
 .table-bordered {
-    border: 2px solid #dee2e6;
+    border: 1px solid #dee2e66e;
 }
 
 .rounded-circle {
@@ -46,11 +31,6 @@ table tr td:nth-child(2) p {
     height: 35px;
     border-radius: 50%;
 }
-
-.status-column {
-    position: relative;
-}
-
 .dot {
     width: 8px;
     height: 8px;
@@ -60,12 +40,8 @@ table tr td:nth-child(2) p {
     margin-right: 5px;
 }
 
-.status-text {
-    color: inherit;
+table tbody tr td img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
 }
-
-.order td:nth-child(7) {
-    width: 100%;
-    height: 100%;
-}
-
