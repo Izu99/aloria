@@ -7,8 +7,7 @@ import AddProductForm from "./pages/Addproduct";
 import EditProductForm from "./pages/Editproduct";
 import MessagingApp from "./pages/Messagingapp";
 import Order from "./pages/Order";
-import Dashboard from "./pages/Dashboard";
-import Sidebar2 from './pages/SidebarComponent'
+import Dashboard from "./pages/Dashboard"
 
 function App() {
 	return (
@@ -25,7 +24,6 @@ function App() {
 					<Route path='/chat' element={<MessagingApp />} />
 					<Route path="/order" element={<Order />} />
 					<Route path="/dashboard" element={<Dashboard />} />
-					<Route path="/sidebar2" element={<Sidebar2 />} />
 				</Routes>
 			</Router>
 		</div>

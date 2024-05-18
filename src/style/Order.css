@@ -8,6 +8,8 @@
 .table {
     border-radius: 10px;
     overflow: scroll;
+    width: 95%;
+    margin: auto;
 }
 
 .table th,
