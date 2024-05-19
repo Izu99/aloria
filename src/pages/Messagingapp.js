@@ -121,13 +121,13 @@ const MessengerApp = () => {
 
 	return (
 		<body>
-			<div className='messagingapp container-fluid d-flex p-0'>
-				<div className='col-2 p-0 m-0'>
+			<div className='messagingapp container-fluid d-flex p-0 m-0'>
+				<div className='col-2 col-md-1 col-sm-1 col-lg-2'>
 					<Sidebar />
 				</div>
-				<div className='col-10'>
+				<div className='col-10 col-md-11 col-sm-11 col-lg-10'>
 					<div className='row'>
-						<div className='col-5 p-3'>
+						<div className='col-5'>
 							<section className='discussions'>
 								{/* <div className='discussion search'>...</div> */}
 								{discussions.map((discussion, index) => (

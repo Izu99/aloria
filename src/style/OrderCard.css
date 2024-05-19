@@ -1,0 +1,85 @@
+.order-card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 50vh;
+    background-color: #efefef5e;
+    box-shadow: 0px 0px 10px #c7c8c9;
+}
+
+.order-card strong {
+    color: #454745;
+}
+
+.order-card .card-body {
+    max-height: 325px!important;
+    width: 100%;
+}
+
+.order-card .order-details .row {
+    align-items: center;
+    justify-content: center;
+   
+}
+.order-card .order-details .row .col-2 img {
+    width: 30px;
+    /* Set width to 100% to fill the container */
+    height: 30px;
+    /* Set a fixed height for consistency */
+    object-fit: cover;
+    border-radius: 50%;
+    /* Ensure the image covers the entire container */
+}
+
+.order-card .order-card .row .col-10 p {
+    margin: 0!important;
+}
+
+.order-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.order-details h5 {
+    margin-top: 0;
+}
+
+.order-details p:not(.order-details .col-10 p ) {
+    margin: 15px 0;
+}
+
+.order-card .order-status {
+    text-align: center;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 5px 10px;
+    width: 80%;
+    margin: auto;
+    height: 10%;
+}
+
+.order-status.pending {
+    border: 1px solid #ffc107;
+    color: #ffc107;
+        /* yellow */
+}
+
+.order-status.delivering {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+        /* blue */
+}
+
+.order-status.completed {
+    border: 1px solid #198754;
+    color: #198754;
+        /* green */
+}
+
+.order-status.rejected {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+        /* red */
+}
