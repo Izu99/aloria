@@ -22,32 +22,31 @@ const Homepage = () => {
 		{ name: "Product 3", price: "79.99", image: "your-image-url-3.jpg" },
 		{ name: "Product 4", price: "69.99", image: "your-image-url-4.jpg" },
 		{ name: "Product 4", price: "69.99", image: "your-image-url-4.jpg" }, // Add more products as needed
+		{ name: "Product 1", price: "99.99", image: "your-image-url-1.jpg" },
+		{ name: "Product 2", price: "89.99", image: "your-image-url-2.jpg" },
+		{ name: "Product 3", price: "79.99", image: "your-image-url-3.jpg" },
+		{ name: "Product 4", price: "69.99", image: "your-image-url-4.jpg" },
+		{ name: "Product 4", price: "69.99", image: "your-image-url-4.jpg" },
 	];
 
 	return (
-		<div className='messagingapp container-fluid d-flex p-0 m-0'>
-				<div className='col-2 col-md-1 col-sm-1 col-lg-2'>
-					<Sidebar />
-				</div>
-				<div className='col-10 col-md-11 col-sm-11 col-lg-10'>
-					<div className='row'></div>
-				<div className='col-11'>
-					<div className='row'>
-						{products.map((product, index) => (
-							<div
-								className='col-12 col-md-4 col-lg-4 col-sm-6'
-								key={index}
-								xs={12}
-								sm={6}
-								md={3}
-								lg={3}>
-								<Card product={product} index={index} />
-							</div>
-						))}
-					</div>
+		<div className='homepage container-fluid d-flex p-0 m-0'>
+			<div className='col-2 col-md-1 col-sm-1 col-lg-2'>
+				<Sidebar />
+			</div>
+		
+				<div className='row'>
+					{products.map((product, index) => (
+						<div
+							className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4'
+							key={index}
+						>
+							<Card product={product} index={index} />
+						</div>
+					))}
 				</div>
 			</div>
-		</div>
+
 	);
 };
 export default Homepage;

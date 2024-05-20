@@ -19,7 +19,7 @@ function App() {
 				<Routes>
 					<Route path='/register' element={<Register />} />
 					<Route path='/' element={<Login />} />
-					<Route path='/homepage' element={<Homepage />} />
+					<Route path='/viewproduct' element={<Homepage />} />
 					<Route path='/addproduct' element={<AddProductForm />} />
 					<Route path='/editproduct' element={<EditProductForm />} />
 					<Route path='/chat' element={<MessagingApp />} />

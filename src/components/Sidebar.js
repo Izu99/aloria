@@ -81,6 +81,13 @@ const Sidebar = () => {
                                 Add Product
                             </NavLink>
                             <NavLink
+                                to="/viewproduct"
+                                className="dropdown-item py-2"
+                                onClick={() => { if (isSmallScreen) setProductsOpen(false); }}
+                            >
+                                View Product
+                            </NavLink>
+                            <NavLink
                                 to="/categories"
                                 className="dropdown-item py-2"
                                 onClick={() => { if (isSmallScreen) setProductsOpen(false); }}

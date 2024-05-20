@@ -20,7 +20,7 @@ const EditProductForm = () => {
 	};
 
 	return (
-		<div className='messagingapp container-fluid d-flex p-0 m-0'>
+		<div className='editproduct container-fluid d-flex p-0 m-0'>
 				<div className='col-2 col-md-1 col-sm-1 col-lg-2'>
 					<Sidebar />
 				</div>
