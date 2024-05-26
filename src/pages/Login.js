@@ -17,7 +17,7 @@ const Login = () => {
                             <h2 className='text-center'>Login</h2>
                             <input type="text" placeholder='Email' className='mt-3 m-2 w-75 mx-auto form-control' />
                             <input type="password" placeholder='Password' className='my-2 w-75 mx-auto form-control' />
-                            <button className='btn w-75 mx-auto mt-4 login-btn'><NavLink to='/homepage'>Login</NavLink> </button>
+                            <button className='btn w-75 mx-auto mt-4 login-btn'><NavLink to='/dashboard'>Login</NavLink> </button>
                             <button className='btn w-75 mx-auto mt-4 google-btn'><img src={google} alt="" /> Sign in with Google</button>
                             <div className="text mx-auto fs-5 mt-2 mb-2"><NavLink to={'/register'}>Don't have an Account?</NavLink></div>
                         </form>

@@ -18,7 +18,7 @@ const Register = () => {
                             <input type="text" placeholder='Email' className='mt-3 m-2 w-75 mx-auto form-control' />
                             <input type="password" placeholder='Password' className='my-2 w-75 mx-auto form-control' />
                             <input type="password" placeholder='Confirm Password' className='my-2 w-75 mx-auto form-control' />
-                            <button className='btn w-75 mx-auto mt-4 register-btn'>Register</button>
+                            <button className='btn w-75 mx-auto mt-4 register-btn text-white'>Register</button>
                             <button className='btn w-75 mx-auto mt-4 google-btn'><img src={google} alt="" /> SIgn up with Google</button>
                             <div className="text mx-auto fs-5 mt-2 mb-2"><NavLink to={'/'}>Already Have an Account?</NavLink></div>
                         </form>
