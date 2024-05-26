@@ -1,141 +1,362 @@
-.messagingapp {
-    max-height: 100vh;
-    height: 100vh;
-    box-sizing: border-box;
+.messagingapp .col-10 {
+    /* width: 80vw;
+    height: 90vh; */
 }
 
-.messagingapp .discussions {
-    height: 100vh;
-    background-color: #e6e3e35b;
+.messaginapp .discussions {
+    overflow-y: auto;
+    height: calc(100vh - 20px);
 }
-
 
 .messagingapp .discussion {
-    align-items: center;
-    padding: 5px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    color: #4d4b4e;
     cursor: pointer;
-    border-bottom: 1px solid #e2e1e1; /* Add border between discussions */
-    border-right: 1px solid #dddddd;
+    transition: background-color 0.3s ease;
+    height: 6.5rem;
     border-radius: 5px;
-    height: 95px;
-    margin-top: 0.2rem;
+    margin-top: 1rem;
+    padding: 20px;
 }
 
 .messagingapp .discussion:hover {
-    background-color: #ececec;
+    background-color: #488b212a;
 }
 
-.messagingapp .discussion .photo {
-    width: 50px;
-    height: 50px;
+.messagingapp .discussion.message-active {
+    background-color: #64b13777;
+}
+
+.messagingapp .photo {
+    /* width: 100%; */
+    /* height: 100%; */
+    /* background-color: #4d4b4e; */
+    margin-bottom: 2.5rem;
+}
+
+.messagingapp .photo img {
     border-radius: 50%;
-    overflow: hidden;
-    margin-right: 15px;
-}
-
-.messagingapp .discussion .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.messagingapp .discussion .desc-contact {
-    flex: 1;
-}
-
-.messagingapp .discussion .name {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.messagingapp .discussion .time {
-    color: #888;
-    font-size: 0.8rem;
-}
-
-.messagingapp .message-active {
-    background-color: #e4e3e3;
-}
-
-.messagingapp .message {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.messagingapp .col-7 {
-    background-color: #8bd38e2f;
-}
-
-.messagingapp .col-7 .chat .row {
-  background-color: #ffffff; 
-  justify-content: space-between; 
-  display: flex;
-  align-items: center;
-  padding: 1rem 0 1rem;
-}
-
-.messagingapp .col-7 .chat .row img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.messagingapp .col-7 .chat .row h2 {
-    font-size: 1.5rem;
-}
-
-.messagingapp .message:nth-child(2) {
-    margin-top: 2rem;
-}
-
-.messagingapp .message.sent {
-    justify-content: flex-end;
-}
-
-.messagingapp .message.received {
-    justify-content: flex-start;
-}
-
-.messagingapp .message .photo {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-}
-
-.messagingapp .message .photo img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+    margin-bottom: auto;
 }
 
-.messagingapp .message .bubble {
-    max-width: 70%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.messagingapp .message.sent .bubble {
-    background-color: #dcf8c6;
-    order: -1;
-}
-
-.messagingapp .message .bubble p {
+.messagingapp .name {
+    font-weight: bold;
     margin: 0;
 }
 
-/* Online Indicator */
-.messagingapp .online {
-    width: 10px;
-    height: 10px;
+.messagingapp .time {
+    color: #888888;
+    font-size: 0.9rem;
+}
+
+.messagingapp .chat {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 20px);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding-bottom: 50px;
+}
+
+.messagingapp .chat .row {
+    padding: 15px;
+    /* background-color: #4d1212; */
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.messagingapp .chat .row img {
     border-radius: 50%;
-    background-color: #4caf50;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.messagingapp .chat h2 {
+    margin: 0 0 0 0.8vw;
+    font-size: 1.25rem;
+}
+
+.messagingapp .messagechat {
+    display: flex;
+    margin: 15px;
+    color: #4d4b4e;
+}
+
+.messagingapp .messagechat.received {
+    justify-content: flex-start;
+}
+
+.messagingapp .messagechat.sent {
+    justify-content: flex-end;
+}
+
+.messagingapp .bubble {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.messagingapp .bubble p {
+    margin: 0;
+}
+
+.messagingapp .messagechat.received .bubble {
+    background-color: #f1f0f0;
+    border-top-left-radius: 0;
+}
+
+.messagingapp .messagechat.sent .bubble {
+    background-color: #77bf439a;
+    color: #4d4b4e;
+    border-top-right-radius: 0;
+}
+
+.messagingapp .chat .message-input-container {
+    display: flex;
+    background-color: #ffffffec;
+    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 46%;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 60px;
+    /* Adjust based on input field height */
+    padding: 10px;
+
+}
+
+.messagingapp .message-input {
+    flex-grow: 1;
+    border-radius: 20px;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #77bf439a;
+}
+
+.messagingapp .send-button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #77bf439a;
+    color: white;
+    background-color: inherit;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.messagingapp .send-button:hover {
+    border-color: #77bf43ff;
+}
+
+.messagingapp .send-button:active {
+    transform: scale(1.1);
+}
+
+.messagingapp .send-button img {
+    width: 30px;
+    height: 30px;
+    /* margin-bottom: 1rem; */
+}
+
+.messagingapp .chat h2 {
+    margin: 0 0 0 2.5vw;
+    font-size: 1.25rem;
+}
+
+.messagingapp .chat,
+.messagingapp .back-button {
+    display: none;
+    /* Hide chat and back button initially on smaller screens */
+}
+
+@media only screen and (max-width:991px) {
+    .messagingapp .chat .message-input-container {
+        width: 53.5%;
+    }
+
+    .messagingapp .message-input {
+        flex-grow: 1;
+        border-radius: 20px;
+        padding: 5px 15px;
+        outline: none;
+        border: 1px solid #77bf439a;
+    }
+
+    .messagingapp .send-button {
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        cursor: pointer;
+        transition: 0.3s ease all;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .messagingapp .send-button:active {
+        transform: scale(1.1);
+    }
+
+    .messagingapp .send-button img {
+        width: 25px;
+        height: 25px;
+        /* margin-bottom: 1rem; */
+    }
+
+
+    .messagingapp .discussion {
+        padding: 10px;
+    }
+
+    .messagingapp .photo {
+        margin-bottom: 3rem;
+    }
+
+    .messagingapp .photo img {
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+    }
+
+    .messagingapp .name {
+        font-size: 0.95rem;
+    }
+
+    .messagingapp .time {
+        color: #888888;
+        font-size: 0.79rem;
+    }
+
+}
+
+@media only screen and (max-width:778px) {
+    .messagingapp .discussion {
+
+        padding: 10px;
+    }
+
+
+    .messagingapp .photo {
+        margin-bottom: 4rem;
+    }
+
+    .messagingapp .photo img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .messagingapp .name {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .messagingapp .time {
+        color: #888888;
+        font-size: 0.7rem;
+    }
+
+    .messagingapp .chat h2 {
+        margin: 0 0 0 4vw;
+        font-size: 1.25rem;
+    }
+
+    .messagingapp .bubble {
+        padding: 10px 15px;
+        border-radius: 20px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+}
+
+@media (min-width: 600px) {
+    .messagingapp .discussions {
+        display: block;
+    }
+
+    .messagingapp .chat {
+        display: block;
+    }
+
+    .messagingapp .back-button {
+        display: none;
+        /* Hide back button on larger screens */
+    }
+
+    .messagingapp .chat .col-11 {
+        width: 90%;
+    }
+
+    .messagingapp .chat h2 {
+        margin: 0 0 0 4vw;
+        font-size: 1.25rem;
+        width: 80%;
+    }
+
+    .messagingapp .discussions .discussion .col-3 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .messagingapp .time {
+        color: #888888;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .messagingapp .discussions {
+        width: 80%;
+        margin: auto;
+        /* Make discussions take full width */
+    }
+
+    .messagingapp .chat {
+        display: none;
+        /* Hide chat initially */
+        width: 100%;
+    }
+
+    .messagingapp .chat.active {
+        display: block;
+        /* Show chat when active */
+    }
+
+    .messagingapp .discussions.active {
+        display: none;
+        /* Hide discussions when chat is active */
+    }
+
+    .messagingapp .back-button {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        width: 10%;
+    }
+
+    .messagingapp .chat .message-input-container {
+        width: 80%;
+    }
+
+    .messagingapp .time {
+        color: #888888;
+        font-size: 0.9rem;
+    }
+
+
+}
+
+@media only screen and (max-width:550px) {
+    .messagingapp .discussions {
+        width: 100%;
+        margin: auto;
+        /* Make discussions take full width */
+        font-size: 0.9rem;
+    }
 }

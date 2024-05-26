@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/Order.css';
 import Sidebar from '../components/Sidebar';
 import Select from 'react-select';
@@ -6,8 +6,7 @@ import chroma from 'chroma-js';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-
-
+import OrderCard from './OrderCard';
 
 const Order = () => {
     const [orders, setOrders] = useState([
@@ -128,6 +127,20 @@ const Order = () => {
     const [statusFilter, setStatusFilter] = useState(null);
     const [dateRange, setDateRange] = useState([{ startDate: null, endDate: null, key: 'selection' }]);
     const [showCalendar, setShowCalendar] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1100); // Adjust the threshold as needed
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check on mount
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const getStatusColors = (status) => {
         switch (status.toLowerCase()) {
@@ -176,7 +189,7 @@ const Order = () => {
             const color = state.data.color ? chroma(state.data.color) : chroma('black');
             return {
                 ...provided,
-                color: state.isSelected ? (chroma.contrast(color, 'white') > 2 ? 'white' : 'black') : color.css(),
+                color: state.isSelected ? (chroma.contrast(color, 'black') > 2 ? 'white' : 'black') : color.css(),
                 backgroundColor: state.isSelected ? color.alpha(0.1).css() : provided.backgroundColor,
             };
         }
@@ -235,7 +248,7 @@ const Order = () => {
             </div>
             <div className='col-10 col-md-11 col-sm-11 col-lg-10'>
                 <div className='row mb-3'>
-                    <div className="col-12 d-flex align-items-center">
+                    <div className="col-8 col-md-10 col-sm-10 col-lg-10 d-flex align-items-center">
                         <input
                             type="text"
                             className="form-control me-2"
@@ -245,9 +258,19 @@ const Order = () => {
                             style={{ height: '45px' }}
                         />
                     </div>
+                    <div className="col-2 col-md-1 col-sm-1 col-lg-1">
+                        <button className="btn calendar-btn text-primary border" onClick={() => setShowCalendar(!showCalendar)}>
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </button>
+                    </div>
+                    <div className="col-2 col-md-1 col-sm-1 col-lg-1">
+                        <button className="btn reset-btn" onClick={resetFilters}>
+                            <i className="fa-solid fa-rotate"></i>
+                        </button>
+                    </div>
                 </div>
                 <div className='row mb-3'>
-                    <div className="col-12 d-flex align-items-center">
+                    <div className="col-12 d-flex">
                         <Select
                             placeholder="Select Category"
                             value={categoryFilter}
@@ -290,74 +313,85 @@ const Order = () => {
                             }}
                             className="me-2 select-container"
                         />
-                        <button className="btn calendar-btn text-primary border" onClick={() => setShowCalendar(!showCalendar)}>
-                            <i class="fa-solid fa-calendar-days"></i>
-                        </button>
-                        
-                        <button className="btn reset-btn" onClick={resetFilters}>
-                            <i className="fa-solid fa-rotate"></i>
-                        </button>
+
                     </div>
                     {showCalendar && (
-                            <div className="calendar-container position-absolute" style={{ zIndex: 999 }}>
-                                <DateRange
-                                    editableDateInputs={true}
-                                    onChange={handleDateRangeChange}
-                                    moveRangeOnFirstSelection={false}
-                                    ranges={dateRange}
-                                />
-                            </div>
-                        )}
+                        <div className="calendar-container position-absolute" style={{ zIndex: 999 }}>
+                            <DateRange
+                                editableDateInputs={true}
+                                onChange={handleDateRangeChange}
+                                moveRangeOnFirstSelection={false}
+                                ranges={dateRange}
+                            />
+                        </div>
+                    )}
                 </div>
 
-                <table className="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Customer</th>
-                            <th>Category</th>
-                            <th>Address</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                {isMobile ? (
+                    <div className="card-container col-12">
                         {filteredOrders.map((order, index) => (
-                            <tr key={index}>
-                                <td>{order.productName}</td>
-                                <td className=''>
-                                    <div className='d-flex' style={{ height: '100%' }}>
-                                        <img
-                                            src={order.img}
-                                            alt="Customer"
-                                            className="rounded-circle"
-                                        />
-                                        <p className='px-2 pt-1 m-0'>{order.customer}</p>
-                                    </div>
-                                </td>
-                                <td>{order.category}</td>
-                                <td>{order.address}</td>
-                                <td>{order.quantity}</td>
-                                <td>{order.orderDate}</td>
-                                <td>{order.price}</td>
-                                <td className="position-relative d-flex align-items-center">
-                                    <span className={`dot ${getStatusColors(order.status).bg}`}></span>
-                                    <Select
-                                        options={statusOptions}
-                                        isSearchable={true}
-                                        value={statusOptions.find(option => option.value === order.status)}
-                                        onChange={(option) => changeStatus(index, option.value)}
-                                        styles={colourStyles}
-                                    />
-                                </td>
-                            </tr>
+                            <OrderCard
+                                key={index}
+                                order={order}
+                                index={index}
+                                getStatusColors={getStatusColors}
+                                statusOptions={statusOptions}
+                                changeStatus={changeStatus}
+                                colourStyles={colourStyles}
+                            />
                         ))}
-                    </tbody>
-                </table>
+                    </div>
+                ) : (
+                    <table className="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Customer</th>
+                                <th>Category</th>
+                                <th>Address</th>
+                                <th>Quantity</th>
+                                <th>Order Date</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredOrders.map((order, index) => (
+                                <tr key={index}>
+                                    <td>{order.productName}</td>
+                                    <td className=''>
+                                        <div className='d-flex' style={{ height: '100%' }}>
+                                            <img
+                                                src={order.img}
+                                                alt="Customer"
+                                                className="rounded-circle"
+                                            />
+                                            <p className='px-2 pt-1 m-0'>{order.customer}</p>
+                                        </div>
+                                    </td>
+                                    <td>{order.category}</td>
+                                    <td>{order.address}</td>
+                                    <td>{order.quantity}</td>
+                                    <td>{order.orderDate}</td>
+                                    <td>{order.price}</td>
+                                    <td className="position-relative d-flex align-items-center">
+                                        <span className={`dot ${getStatusColors(order.status).bg}`}></span>
+                                        <Select
+                                            options={statusOptions}
+                                            isSearchable={true}
+                                            value={statusOptions.find(option => option.value === order.status)}
+                                            onChange={(option) => changeStatus(index, option.value)}
+                                            styles={colourStyles}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
             </div>
         </div>
+
     );
 };
 

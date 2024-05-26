@@ -23,15 +23,15 @@ const Sidebar = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    
+
     useEffect(() => {
         // Check if the current path is within the products or orders dropdown
-        if (location.pathname.startsWith('/addproduct') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/brands')) {
+        if (location.pathname.startsWith('/addproduct') || location.pathname.startsWith('/viewproduct') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/brands')) {
             setProductsOpen(!isSmallScreen); // Open only if not a small screen
         } else if (location.pathname.startsWith('/order') || location.pathname.startsWith('/orders')) {
             setOrdersOpen(!isSmallScreen); // Open only if not a small screen
         }
-    
+
         // Close dropdowns when screen size is small
         if (isSmallScreen) {
             setProductsOpen(false);
@@ -103,40 +103,12 @@ const Sidebar = () => {
                             </NavLink>
                         </div>
                     </li>
-                    <li className="py-2">
-                        <button
-                            className="btn btn-toggle"
-                            onClick={() => toggleDropdown('orders')}
-                            data-open={isOrdersOpen}
-                        >
-                            <i className="fa-solid fa-cart-shopping"></i>
-                            <span className={`${isSmallScreen ? 'd-none' : 'ml-2'}`}>Orders</span>
-                            <i className={`fa ${isOrdersOpen ? 'fa-caret-down' : 'fa-caret-right'}`}></i>
-                        </button>
-                        <div className={`dropdown-container ${isOrdersOpen ? 'd-block' : ''}`}>
-                            <NavLink
-                                to="/order"
-                                className="dropdown-item py-2"
-                                onClick={() => { if (isSmallScreen) setOrdersOpen(false); }}
-                            >
-                                Completed
-                            </NavLink>
-                            <NavLink
-                                to="/orders/pending"
-                                className="dropdown-item py-2"
-                                onClick={() => { if (isSmallScreen) setOrdersOpen(false); }}
-                            >
-                                Pending
-                            </NavLink>
-                            <NavLink
-                                to="/orders/rejected"
-                                className="dropdown-item py-2"
-                                onClick={() => { if (isSmallScreen) setOrdersOpen(false); }}
-                            >
-                                Rejected
-                            </NavLink>
-                        </div>
+                    <li className='py-2'>
+                        <NavLink to='/order' className='btn btn-toggle' activeClassName='active'>
+                            <i class="fa-solid fa-truck"></i> <span className={`${isSmallScreen ? 'd-none' : 'ml-2'}`}>Order</span>
+                        </NavLink>
                     </li>
+
                     <li className='py-2'>
                         <NavLink to='/delivery-management' className='btn btn-toggle ' activeClassName='active'>
                             <i className='fa-solid fa-users'></i> <span className={`${isSmallScreen ? 'd-none' : 'ml-2'}`}>Customers</span>
@@ -153,8 +125,8 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                 </ul>
-                <NavLink to='/login' className='btn btn-toggle mt-auto' activeClassName='active'>
-                    <i className='fa-solid fa-right-from-bracket'></i> <p className="logout"> Logout</p>
+                <NavLink to='/' className='btn btn-toggle mt-auto border-0' activeClassName='activ'>
+                    <i className='fa-solid fa-right-from-bracket fs-5'></i>
                 </NavLink>
             </nav>
 

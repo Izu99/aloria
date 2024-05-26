@@ -35,11 +35,9 @@
 }
 
 .order .table {
-    border-radius: 10px;
-    overflow: hidden;
-    /* Hide overflow to prevent scrollbars on the table */
-    background-color: white;
-    /* White background for the table */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background-color: #21bd2141;
 }
 
 .order .table th,
@@ -127,20 +125,6 @@
 }
 
 
-/* Date range picker styling */
-.date-range-picker {
-    position: absolute;
-    z-index: 999;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    padding: 10px;
-}
-
-.date-range-picker-hidden {
-    display: none;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .order .input-group {
@@ -157,4 +141,41 @@
         padding: 0.5rem;
         /* Less padding on smaller screens */
     }
+
+    .order .calendar-container {
+        width: 100px;
+        max-width: 100px;
+    }
+
+    .order .rdrCalendarWrapper.rdrDateRangeWrapper {
+        width: 250px !important;
+    }
+
+    .order .rdrMonth {
+        width: 250px !important;
+    }
+    .order .select-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .order .col-12 {
+        margin: 0;
+        padding: 0;
+        width: 40%!important;
+    }
+
+    .order .css-1jqq78o-placeholder {
+        font-size: 0.75rem;
+    }
+    
+    /* .css-b62m3t-container {
+        width: 50px!important;
+    } */
+
+    .order .css-2cvdlk-control {
+        width: 120px!important;
+    }
+
+   
 }
